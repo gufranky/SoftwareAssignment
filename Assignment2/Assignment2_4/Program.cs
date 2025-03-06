@@ -5,12 +5,26 @@
         static bool checkMatrix(int[,] matrix, int m, int n)
         {
             int min = m < n ? m : n;
-            int ans = matrix[0, 0];
-            for (int i = 1; i < min; i++)
+            for (int first = 0; first < m; first++)
             {
-                if (matrix[i, i] != ans)
+                int ans = matrix[first,0];
+                for (int i = 1; i < min-first; i++)
                 {
-                    return false;
+                    if (matrix[i, i] != ans)
+                    {
+                        return false;
+                    }
+                }
+            }
+            for (int first = 0; first < n; first++)
+            {
+                int ans = matrix[0, first];
+                for (int i = 1; i < min-first; i++)
+                {
+                    if (matrix[i, i] != ans)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
