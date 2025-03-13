@@ -83,6 +83,7 @@
     {
         static void Main(string[] args)
         {
+            Shape[] shapes = new Shape[10];
             for(int i=0;i<10;i++)
             {
                 string typestr;
@@ -116,6 +117,7 @@
                         {
                             Console.WriteLine("Illegal");
                         }
+                        shapes[i]=triangle;
                         break;
                     case 2:
                         Square square = new Square(length);
@@ -127,9 +129,10 @@
                         {
                             Console.WriteLine("Illegal");
                         }
+                        shapes[i] = square;
                         break;
                     case 3:
-                        rectangle rectangle = new rectangle(length);
+                        Rectangle rectangle = new Rectangle(length);
                         if (rectangle.IsLegal())
                         {
                             Console.WriteLine(rectangle.getArea());
@@ -138,6 +141,7 @@
                         {
                             Console.WriteLine("Illegal");
                         }
+                        shapes[i] = rectangle;
                         break;
                     case 4:
                         circle circle = new circle(length);
@@ -149,6 +153,7 @@
                         {
                             Console.WriteLine("Illegal");
                         }
+                        shapes[i] = circle;
                         break;
                 }
             }
