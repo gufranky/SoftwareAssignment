@@ -157,7 +157,10 @@
                         break;
                 }
             }
-
+            foreach(Shape shape in shapes)
+            {
+                Console.WriteLine(shape.getlength());
+            }
 
         }
     }
