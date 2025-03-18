@@ -77,7 +77,25 @@
             return sidelength[0] > 0;
         }
     }
-
+    public class shapeFactory
+    {
+        public static Shape createShape(int type, int[] sidelength)
+        {
+            switch (type)
+            {
+                case 1:
+                    return new Triangle(sidelength);
+                case 2:
+                    return new Square(sidelength);
+                case 3:
+                    return new Rectangle(sidelength);
+                case 4:
+                    return new circle(sidelength);
+                default:
+                    return null;
+            }
+        }
+    }
 
     internal class Program
     {
