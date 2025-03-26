@@ -49,7 +49,8 @@ namespace TestProject1
             orderService.AddOrder(1, "Alice", orderDetails);
             List<Order> o = orderService.QueryOrder(o => o.OrderId == 1);
             Order order = o[0];
-            Assert.AreEqual(order.ToString(), "1 Alice 100");
+            string s = order.ToString();
+            Assert.AreEqual(s, "1 Alice 100");
         }
         [TestMethod]
         public void SortTest()
@@ -60,7 +61,7 @@ namespace TestProject1
             orderService.AddOrder(2, "Alice", orderDetails);
             orderService.AddOrder(1, "Bob", orderDetails);
             orderService.SortOrders();
-            List<Order> o = orderService.QueryOrder(o => o.OrderId == 1);
+            List<Order> o = orderService.QueryOrder(o => true);
             Order order = o[0];
             Assert.AreEqual(order.ToString(), "1 Bob 100");
         }

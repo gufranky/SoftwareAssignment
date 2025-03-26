@@ -100,7 +100,12 @@ namespace Assignment5
             {
                 return false;
             }
+            List<Order> Todelete = new List<Order>(); 
             foreach (var o in target)
+            {
+               Todelete.Add(o);
+            }
+            foreach (var o in Todelete)
             {
                 orders.Remove(o);
             }
