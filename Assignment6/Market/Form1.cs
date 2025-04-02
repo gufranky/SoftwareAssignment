@@ -1,10 +1,12 @@
+using Assignment5;
 namespace Market
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(OrderService orderService)
         {
             InitializeComponent();
+            orderServiceBindingSource.DataSource = orderService;
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -16,7 +18,7 @@ namespace Market
         {
             Add form2 = new Add();
             form2.Show();
-            //´ò¿ªform2
+            //ï¿½ï¿½form2
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
