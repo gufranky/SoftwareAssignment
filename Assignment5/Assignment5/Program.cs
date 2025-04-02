@@ -9,6 +9,7 @@ namespace Assignment5
         public string Customer { get; set; }
         public List<OrderDetails> OrderDetails { get; set; }
         public double TotalPrice => OrderDetails.Sum(d => d.TotalPrice);
+        public string list => OrderDetails.ToString();
         public override bool Equals(object obj)
         {
             if (obj is Order order)

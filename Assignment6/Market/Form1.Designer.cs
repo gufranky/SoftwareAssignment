@@ -36,12 +36,13 @@
             button4 = new Button();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
-            orderBindingSource = new BindingSource(components);
-            textBox1 = new TextBox();
-            orderServiceBindingSource = new BindingSource(components);
             orderIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             totalPriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            list = new DataGridViewTextBoxColumn();
+            orderBindingSource = new BindingSource(components);
+            textBox1 = new TextBox();
+            orderServiceBindingSource = new BindingSource(components);
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -129,7 +130,7 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { orderIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn, totalPriceDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { orderIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn, totalPriceDataGridViewTextBoxColumn, list });
             dataGridView1.DataSource = orderBindingSource;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
@@ -138,24 +139,6 @@
             dataGridView1.RowTemplate.Height = 32;
             dataGridView1.Size = new Size(682, 504);
             dataGridView1.TabIndex = 0;
-            // 
-            // orderBindingSource
-            // 
-            orderBindingSource.DataSource = typeof(Assignment5.Order);
-            // 
-            // textBox1
-            // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(3, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(682, 30);
-            textBox1.TabIndex = 6;
-            textBox1.Text = "请输入客户名";
-            // 
-            // orderServiceBindingSource
-            // 
-            orderServiceBindingSource.DataSource = typeof(Assignment5.OrderService);
-            orderServiceBindingSource.CurrentChanged += orderServiceBindingSource_CurrentChanged;
             // 
             // orderIdDataGridViewTextBoxColumn
             // 
@@ -181,6 +164,33 @@
             totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
             totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
             totalPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // list
+            // 
+            list.DataPropertyName = "list";
+            list.HeaderText = "list";
+            list.MinimumWidth = 8;
+            list.Name = "list";
+            list.ReadOnly = true;
+            list.Width = 400;
+            // 
+            // orderBindingSource
+            // 
+            orderBindingSource.DataSource = typeof(Assignment5.Order);
+            // 
+            // textBox1
+            // 
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Location = new Point(3, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(682, 30);
+            textBox1.TabIndex = 6;
+            textBox1.Text = "请输入客户名";
+            // 
+            // orderServiceBindingSource
+            // 
+            orderServiceBindingSource.DataSource = typeof(Assignment5.OrderService);
+            orderServiceBindingSource.CurrentChanged += orderServiceBindingSource_CurrentChanged;
             // 
             // Form1
             // 
@@ -216,5 +226,6 @@
         private DataGridViewTextBoxColumn orderIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn list;
     }
 }
