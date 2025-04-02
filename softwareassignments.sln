@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assignment1", "Assignment1", "{15EBC7CD-4654-4433-8C50-F818152BC547}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputeWindow", "Assignment1\ComputeWindow\ComputeWindow.csproj", "{9DAC8F4B-9A28-40ED-9A3C-93490498A324}"
+	ProjectSection(ProjectDependencies) = postProject
+		{947C7B12-5335-46A1-8EC1-77282F12C22E} = {947C7B12-5335-46A1-8EC1-77282F12C22E}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputeConsole", "Assignment1\ComputeConsole\ComputeConsole.csproj", "{A1AA7ACA-09DB-49EB-88CE-719727457AB4}"
 EndProject
@@ -29,7 +32,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment4_2", "Assignment
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment5", "Assignment5\Assignment5\Assignment5.csproj", "{947C7B12-5335-46A1-8EC1-77282F12C22E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "Assignment5\TestProject1\TestProject1.csproj", "{57FBC64B-D795-47FC-B3A2-60018D0ACFA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "Assignment5\TestProject1\TestProject1.csproj", "{57FBC64B-D795-47FC-B3A2-60018D0ACFA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{947C7B12-5335-46A1-8EC1-77282F12C22E} = {947C7B12-5335-46A1-8EC1-77282F12C22E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market", "Assignment6\Market\Market.csproj", "{4A5C90E6-240D-4687-9088-A2D019533AB5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{947C7B12-5335-46A1-8EC1-77282F12C22E} = {947C7B12-5335-46A1-8EC1-77282F12C22E}
 	EndProjectSection
@@ -84,6 +92,10 @@ Global
 		{57FBC64B-D795-47FC-B3A2-60018D0ACFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57FBC64B-D795-47FC-B3A2-60018D0ACFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57FBC64B-D795-47FC-B3A2-60018D0ACFA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5C90E6-240D-4687-9088-A2D019533AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5C90E6-240D-4687-9088-A2D019533AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5C90E6-240D-4687-9088-A2D019533AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5C90E6-240D-4687-9088-A2D019533AB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
