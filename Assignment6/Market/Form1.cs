@@ -6,7 +6,7 @@ namespace Market
         public Form1(OrderService orderService)
         {
             InitializeComponent();
-            orderServiceBindingSource.DataSource = orderService;
+            orderBindingSource.DataSource = orderService.orders;
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -33,7 +33,7 @@ namespace Market
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = orderServiceBindingSource;
+            dataGridView1.DataSource = orderBindingSource;
         }
     }
 }

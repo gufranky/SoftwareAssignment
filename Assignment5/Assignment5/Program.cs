@@ -77,7 +77,7 @@ namespace Assignment5
 
     public class OrderService
     {
-        private List<Order> orders = new List<Order>();
+        public List<Order> orders = new List<Order>();
         public bool AddOrder(int orderId, string customer, List<OrderDetails> orderDetails)
         {
             Order order = new Order
