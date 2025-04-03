@@ -242,5 +242,6 @@ namespace Market
         private DataGridViewTextBoxColumn list;
         private OrderService orderService;
         private TextBox textBox2;
+        private List<Product> products;
     }
 }

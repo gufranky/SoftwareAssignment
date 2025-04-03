@@ -1,4 +1,6 @@
-﻿namespace Market
+﻿using Assignment5;
+
+namespace Market
 {
     partial class Add
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tableLayoutPanel1 = new TableLayoutPanel();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
@@ -36,8 +39,14 @@
             button1 = new Button();
             button2 = new Button();
             dataGridView1 = new DataGridView();
+            orderIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            product1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            totalPriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            orderDetailsBindingSource = new BindingSource(components);
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)orderDetailsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,6 +122,7 @@
             button1.TabIndex = 4;
             button1.Text = "添加商品";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -123,10 +133,14 @@
             button2.TabIndex = 5;
             button2.Text = "添加订单";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { orderIdDataGridViewTextBoxColumn, product1DataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, totalPriceDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = orderDetailsBindingSource;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(3, 3);
             dataGridView1.Name = "dataGridView1";
@@ -135,6 +149,43 @@
             dataGridView1.RowTemplate.Height = 32;
             dataGridView1.Size = new Size(554, 444);
             dataGridView1.TabIndex = 6;
+            // 
+            // orderIdDataGridViewTextBoxColumn
+            // 
+            orderIdDataGridViewTextBoxColumn.DataPropertyName = "OrderId";
+            orderIdDataGridViewTextBoxColumn.HeaderText = "OrderId";
+            orderIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            orderIdDataGridViewTextBoxColumn.Name = "orderIdDataGridViewTextBoxColumn";
+            orderIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // product1DataGridViewTextBoxColumn
+            // 
+            product1DataGridViewTextBoxColumn.DataPropertyName = "product1";
+            product1DataGridViewTextBoxColumn.HeaderText = "product1";
+            product1DataGridViewTextBoxColumn.MinimumWidth = 8;
+            product1DataGridViewTextBoxColumn.Name = "product1DataGridViewTextBoxColumn";
+            product1DataGridViewTextBoxColumn.Width = 150;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            quantityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            quantityDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
+            totalPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            totalPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // orderDetailsBindingSource
+            // 
+            orderDetailsBindingSource.DataSource = typeof(OrderDetails);
             // 
             // Add
             // 
@@ -147,6 +198,7 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)orderDetailsBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -160,5 +212,13 @@
         private Button button1;
         private Button button2;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn orderIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn product1DataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private BindingSource orderDetailsBindingSource;
+        private List<Product> products;
+        private int nowid;
+        private OrderService orderService;
     }
 }

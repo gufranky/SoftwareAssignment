@@ -5,10 +5,11 @@ namespace Market
 {
     public partial class Form1 : Form
     {
-        public Form1(OrderService orderService)
+        public Form1(OrderService orderService, List<Product> products)
         {
             InitializeComponent();
             this.orderService = orderService;
+            this.products = products;
             orderBindingSource.DataSource = orderService.orders;
         }
 
@@ -19,7 +20,7 @@ namespace Market
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Add form2 = new Add();
+            Add form2 = new Add(this.orderService, this.products);
             form2.Show();
             //��form2
         }
@@ -58,7 +59,7 @@ namespace Market
             {
                 MessageBox.Show("删除成功");
                 orderBindingSource.DataSource = orderService.orders;
-                dataGridView1.Update();
+                dataGridView1.Invalidate();
             }
             else
             {

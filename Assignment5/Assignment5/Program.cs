@@ -72,7 +72,7 @@ namespace Assignment5
         }
         public override string ToString()
         {
-            return (Productid + " " + Price);
+            return (Name + " " + Price);
         }
     }
 
