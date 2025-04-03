@@ -20,7 +20,7 @@ namespace Market
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Add form2 = new Add(this.orderService, this.products);
+            Add form2 = new Add(this.orderService, this.products, 0, 0);
             form2.Show();
             //��form2
         }
@@ -76,6 +76,13 @@ namespace Market
         {
             dataGridView1.DataSource = orderBindingSource;
             dataGridView1.Refresh();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(this.orderService,this.products);
+            form2.Show();
+
         }
     }
 }

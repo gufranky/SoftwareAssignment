@@ -108,6 +108,7 @@ namespace Market
             button3.TabIndex = 3;
             button3.Text = "修改订单";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 

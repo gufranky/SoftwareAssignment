@@ -220,5 +220,6 @@ namespace Market
         private List<Product> products;
         private int nowid;
         private OrderService orderService;
+        private int mode;
     }
 }

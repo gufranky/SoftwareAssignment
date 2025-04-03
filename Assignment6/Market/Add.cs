@@ -14,15 +14,26 @@ namespace Market
 {
     public partial class Add : Form
     {
-        public Add(OrderService os, List<Product> products)
+        public Add(OrderService os, List<Product> products, int mode, int orderid)
         {
             InitializeComponent();
             this.products = products;
             this.orderService = os;
-            List<OrderDetails> list = new List<OrderDetails>();
-            nowid = os.orders.Max(o => o.OrderId) + 1;
-            orderDetailsBindingSource.DataSource = list;
-            dataGridView1.DataSource = orderDetailsBindingSource;
+            this.mode = mode;
+            if (mode == 0)
+            {
+                List<OrderDetails> list = new List<OrderDetails>();
+                nowid = os.orders.Max(o => o.OrderId) + 1;
+                orderDetailsBindingSource.DataSource = list;
+                dataGridView1.DataSource = orderDetailsBindingSource;
+            }
+            else
+            {
+                List<OrderDetails> list = orderService.orders[orderid].OrderDetails;
+                nowid = orderid;
+                orderDetailsBindingSource.DataSource = list;
+                dataGridView1.DataSource = orderDetailsBindingSource;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,15 +62,31 @@ namespace Market
 
         private void button2_Click(object sender, EventArgs e)
         {
-            bool status = orderService.AddOrder(nowid, textBox1.Text, orderDetailsBindingSource.List.Cast<OrderDetails>().ToList());
-            if (status)
+            if (mode == 0)
             {
-                MessageBox.Show("添加成功");
-                this.Close();
+                bool status = orderService.AddOrder(nowid, textBox1.Text, orderDetailsBindingSource.List.Cast<OrderDetails>().ToList());
+                if (status)
+                {
+                    MessageBox.Show("添加成功");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("添加失败");
+                }
             }
             else
             {
-                MessageBox.Show("添加失败");
+                bool status=orderService.UpdateOrder(nowid, textBox1.Text, orderDetailsBindingSource.List.Cast<OrderDetails>().ToList());
+                if (status)
+                {
+                    MessageBox.Show("修改成功");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                }
             }
         }
     }
