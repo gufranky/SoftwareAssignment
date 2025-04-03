@@ -1,4 +1,6 @@
-﻿namespace Market
+﻿using Assignment5;
+
+namespace Market
 {
     partial class Form1
     {
@@ -42,12 +44,11 @@
             list = new DataGridViewTextBoxColumn();
             orderBindingSource = new BindingSource(components);
             textBox1 = new TextBox();
-            orderServiceBindingSource = new BindingSource(components);
+            textBox2 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)orderServiceBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,6 +63,7 @@
             tableLayoutPanel1.Controls.Add(button4, 1, 4);
             tableLayoutPanel1.Controls.Add(panel1, 0, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(textBox2, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -95,6 +97,7 @@
             button2.TabIndex = 2;
             button2.Text = "删除订单";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -115,6 +118,7 @@
             button4.TabIndex = 4;
             button4.Text = "查询订单";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // panel1
             // 
@@ -128,6 +132,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { orderIdDataGridViewTextBoxColumn, customerDataGridViewTextBoxColumn, totalPriceDataGridViewTextBoxColumn, list });
@@ -135,10 +140,12 @@
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 32;
             dataGridView1.Size = new Size(682, 504);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // orderIdDataGridViewTextBoxColumn
             // 
@@ -146,6 +153,7 @@
             orderIdDataGridViewTextBoxColumn.HeaderText = "OrderId";
             orderIdDataGridViewTextBoxColumn.MinimumWidth = 8;
             orderIdDataGridViewTextBoxColumn.Name = "orderIdDataGridViewTextBoxColumn";
+            orderIdDataGridViewTextBoxColumn.ReadOnly = true;
             orderIdDataGridViewTextBoxColumn.Width = 150;
             // 
             // customerDataGridViewTextBoxColumn
@@ -154,6 +162,7 @@
             customerDataGridViewTextBoxColumn.HeaderText = "Customer";
             customerDataGridViewTextBoxColumn.MinimumWidth = 8;
             customerDataGridViewTextBoxColumn.Name = "customerDataGridViewTextBoxColumn";
+            customerDataGridViewTextBoxColumn.ReadOnly = true;
             customerDataGridViewTextBoxColumn.Width = 150;
             // 
             // totalPriceDataGridViewTextBoxColumn
@@ -176,7 +185,8 @@
             // 
             // orderBindingSource
             // 
-            orderBindingSource.DataSource = typeof(Assignment5.Order);
+            orderBindingSource.DataSource = typeof(Order);
+            orderBindingSource.CurrentChanged += orderBindingSource_CurrentChanged;
             // 
             // textBox1
             // 
@@ -187,10 +197,15 @@
             textBox1.TabIndex = 6;
             textBox1.Text = "请输入客户名";
             // 
-            // orderServiceBindingSource
+            // textBox2
             // 
-            orderServiceBindingSource.DataSource = typeof(Assignment5.OrderService);
-            orderServiceBindingSource.CurrentChanged += orderServiceBindingSource_CurrentChanged;
+            textBox2.Dock = DockStyle.Fill;
+            textBox2.Location = new Point(691, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(167, 30);
+            textBox2.TabIndex = 7;
+            textBox2.Text = "输入删除id";
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // Form1
             // 
@@ -206,7 +221,6 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)orderServiceBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -221,11 +235,12 @@
         private Panel panel1;
         private DataGridView dataGridView1;
         private TextBox textBox1;
-        private BindingSource orderServiceBindingSource;
         private BindingSource orderBindingSource;
         private DataGridViewTextBoxColumn orderIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn customerDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn list;
+        private OrderService orderService;
+        private TextBox textBox2;
     }
 }

@@ -129,7 +129,7 @@ namespace Assignment5
         public List<Order> QueryOrder(Func<Order, bool> predicate)
         {
             var targets = from o in orders where predicate(o) select o;
-            targets = targets.OrderByDescending(o => o.TotalPrice);
+            targets = targets.OrderByDescending(o => o.OrderId);
             return targets.ToList();
         }
         public void SortOrders(Func<Order, object> keySelector = null)
