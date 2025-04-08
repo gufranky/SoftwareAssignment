@@ -77,7 +77,7 @@ namespace Market
             }
             else
             {
-                bool status=orderService.UpdateOrder(nowid, textBox1.Text, orderDetailsBindingSource.List.Cast<OrderDetails>().ToList());
+                bool status = orderService.UpdateOrder(nowid, textBox1.Text, orderDetailsBindingSource.List.Cast<OrderDetails>().ToList());
                 if (status)
                 {
                     MessageBox.Show("修改成功");

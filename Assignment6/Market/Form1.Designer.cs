@@ -45,10 +45,14 @@ namespace Market
             orderBindingSource = new BindingSource(components);
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            panel2 = new Panel();
+            dataGridView2 = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderBindingSource).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -64,6 +68,7 @@ namespace Market
             tableLayoutPanel1.Controls.Add(panel1, 0, 1);
             tableLayoutPanel1.Controls.Add(textBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(textBox2, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -127,8 +132,8 @@ namespace Market
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 58);
             panel1.Name = "panel1";
-            tableLayoutPanel1.SetRowSpan(panel1, 4);
-            panel1.Size = new Size(682, 504);
+            tableLayoutPanel1.SetRowSpan(panel1, 2);
+            panel1.Size = new Size(682, 248);
             panel1.TabIndex = 5;
             // 
             // dataGridView1
@@ -144,7 +149,7 @@ namespace Market
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 32;
-            dataGridView1.Size = new Size(682, 504);
+            dataGridView1.Size = new Size(682, 248);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -208,6 +213,27 @@ namespace Market
             textBox2.Text = "输入删除id";
             textBox2.TextChanged += textBox2_TextChanged;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(dataGridView2);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 312);
+            panel2.Name = "panel2";
+            tableLayoutPanel1.SetRowSpan(panel2, 2);
+            panel2.Size = new Size(682, 250);
+            panel2.TabIndex = 8;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Dock = DockStyle.Fill;
+            dataGridView2.Location = new Point(0, 0);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 62;
+            dataGridView2.RowTemplate.Height = 32;
+            dataGridView2.Size = new Size(682, 250);
+            dataGridView2.TabIndex = 0;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
@@ -222,6 +248,8 @@ namespace Market
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)orderBindingSource).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +272,7 @@ namespace Market
         private OrderService orderService;
         private TextBox textBox2;
         private List<Product> products;
+        private Panel panel2;
+        private DataGridView dataGridView2;
     }
 }
