@@ -30,3 +30,4 @@ namespace Assignment7
             return (Name + " " + Price);
         }
     }
+}

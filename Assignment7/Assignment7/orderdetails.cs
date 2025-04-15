@@ -8,7 +8,7 @@ namespace Assignment7
 {
     public class OrderDetails
     {
-        public int DetailsId { get; set; }
+        public int OrderDetailsId { get; set; }
         public Order Order { get; set; }
         public int OrderId { get; set; }
         public Product product1 { get; set; }
